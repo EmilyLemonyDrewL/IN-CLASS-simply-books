@@ -1,5 +1,7 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
 import { useAuth } from '../utils/context/authContext';
+import { signOut } from '../utils/auth';
 
 export default function User() {
   const { user } = useAuth();
@@ -15,6 +17,9 @@ export default function User() {
       </div>
       <div className="text-white ms-5 deatails">
         <p>Last sign in time: {user.metadata.lastSignInTime}</p>
+        <Button type="button" onClick={signOut}>
+          Logout
+        </Button>
       </div>
     </div>
   );
